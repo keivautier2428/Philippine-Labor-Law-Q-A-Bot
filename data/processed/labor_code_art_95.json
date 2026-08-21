@@ -1,0 +1,15 @@
+{
+  "source_file": "labor_code_art_95.txt",
+  "raw_char_count": 326,
+  "cleaned_char_count": 45,
+  "token_count": 6,
+  "cleaned_text": "Article 95. Right to service incentive leave.",
+  "tokens": [
+    "article",
+    "95",
+    "right",
+    "service",
+    "incentive",
+    "leave"
+  ]
+}

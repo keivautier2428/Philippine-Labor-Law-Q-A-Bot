@@ -1,0 +1,15 @@
+{
+  "source_file": "labor_code_art_91.txt",
+  "raw_char_count": 282,
+  "cleaned_char_count": 37,
+  "token_count": 6,
+  "cleaned_text": "Article 91. Right to weekly rest day.",
+  "tokens": [
+    "article",
+    "91",
+    "right",
+    "weekly",
+    "rest",
+    "day"
+  ]
+}

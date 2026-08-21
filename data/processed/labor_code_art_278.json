@@ -1,0 +1,22 @@
+{
+  "source_file": "labor_code_art_278.txt",
+  "raw_char_count": 324,
+  "cleaned_char_count": 129,
+  "token_count": 13,
+  "cleaned_text": "Article 278. Coverage. The provisions of this Title shall apply to all establishments or undertakings, whether for profit or not.",
+  "tokens": [
+    "article",
+    "278",
+    "coverage",
+    "provisions",
+    "title",
+    "shall",
+    "apply",
+    "all",
+    "establishments",
+    "undertakings",
+    "whether",
+    "profit",
+    "not"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "source_file": "labor_code_art_92.txt",
+  "raw_char_count": 361,
+  "cleaned_char_count": 116,
+  "token_count": 17,
+  "cleaned_text": "Article 92. When employer may require work on a rest day. The employer may require his employees to work on any day:",
+  "tokens": [
+    "article",
+    "92",
+    "when",
+    "employer",
+    "may",
+    "require",
+    "work",
+    "rest",
+    "day",
+    "employer",
+    "may",
+    "require",
+    "his",
+    "employees",
+    "work",
+    "any",
+    "day"
+  ]
+}

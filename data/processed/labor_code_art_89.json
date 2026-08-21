@@ -1,0 +1,25 @@
+{
+  "source_file": "labor_code_art_89.txt",
+  "raw_char_count": 375,
+  "cleaned_char_count": 137,
+  "token_count": 16,
+  "cleaned_text": "Article 89. Emergency overtime work. Any employee may be required by the employer to perform overtime work in any of the following cases:",
+  "tokens": [
+    "article",
+    "89",
+    "emergency",
+    "overtime",
+    "work",
+    "any",
+    "employee",
+    "may",
+    "required",
+    "employer",
+    "perform",
+    "overtime",
+    "work",
+    "any",
+    "following",
+    "cases"
+  ]
+}

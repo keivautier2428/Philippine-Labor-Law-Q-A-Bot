@@ -1,0 +1,19 @@
+{
+  "source_file": "labor_code_art_14.txt",
+  "raw_char_count": 324,
+  "cleaned_char_count": 92,
+  "token_count": 10,
+  "cleaned_text": "Article 14. Employment promotion. The Secretary of Labor shall have the power and authority:",
+  "tokens": [
+    "article",
+    "14",
+    "employment",
+    "promotion",
+    "secretary",
+    "labor",
+    "shall",
+    "have",
+    "power",
+    "authority"
+  ]
+}

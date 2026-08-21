@@ -1,0 +1,20 @@
+{
+  "source_file": "labor_code_art_282.txt",
+  "raw_char_count": 305,
+  "cleaned_char_count": 110,
+  "token_count": 11,
+  "cleaned_text": "Article 282. Termination by employer. An employer may terminate an employment for any of the following causes:",
+  "tokens": [
+    "article",
+    "282",
+    "termination",
+    "employer",
+    "employer",
+    "may",
+    "terminate",
+    "employment",
+    "any",
+    "following",
+    "causes"
+  ]
+}

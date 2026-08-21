@@ -1,0 +1,14 @@
+{
+  "source_file": "labor_code_art_15.txt",
+  "raw_char_count": 274,
+  "cleaned_char_count": 42,
+  "token_count": 5,
+  "cleaned_text": "Article 15. Bureau of Employment Services.",
+  "tokens": [
+    "article",
+    "15",
+    "bureau",
+    "employment",
+    "services"
+  ]
+}

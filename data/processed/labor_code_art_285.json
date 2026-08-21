@@ -1,0 +1,13 @@
+{
+  "source_file": "labor_code_art_285.txt",
+  "raw_char_count": 232,
+  "cleaned_char_count": 37,
+  "token_count": 4,
+  "cleaned_text": "Article 285. Termination by employee.",
+  "tokens": [
+    "article",
+    "285",
+    "termination",
+    "employee"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "source_file": "labor_code_art_20.txt",
+  "raw_char_count": 266,
+  "cleaned_char_count": 34,
+  "token_count": 5,
+  "cleaned_text": "Article 20. National Seamen Board.",
+  "tokens": [
+    "article",
+    "20",
+    "national",
+    "seamen",
+    "board"
+  ]
+}

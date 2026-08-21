@@ -1,0 +1,5 @@
+sentence-transformers
+numpy
+chromadb
+google-genai
+python-dotenv

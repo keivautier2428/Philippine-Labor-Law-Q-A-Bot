@@ -1,0 +1,26 @@
+{
+  "source_file": "labor_code_art_83.txt",
+  "raw_char_count": 352,
+  "cleaned_char_count": 114,
+  "token_count": 17,
+  "cleaned_text": "Article 83. Normal hours of work. The normal hours of work of any employee shall not exceed eight (8) hours a day.",
+  "tokens": [
+    "article",
+    "83",
+    "normal",
+    "hours",
+    "work",
+    "normal",
+    "hours",
+    "work",
+    "any",
+    "employee",
+    "shall",
+    "not",
+    "exceed",
+    "eight",
+    "8",
+    "hours",
+    "day"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "source_file": "labor_code_art_19.txt",
+  "raw_char_count": 271,
+  "cleaned_char_count": 39,
+  "token_count": 5,
+  "cleaned_text": "Article 19. Office of Emigrant Affairs.",
+  "tokens": [
+    "article",
+    "19",
+    "office",
+    "emigrant",
+    "affairs"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "source_file": "labor_code_art_93.txt",
+  "raw_char_count": 307,
+  "cleaned_char_count": 62,
+  "token_count": 8,
+  "cleaned_text": "Article 93. Compensation for rest day, Sunday or holiday work.",
+  "tokens": [
+    "article",
+    "93",
+    "compensation",
+    "rest",
+    "day",
+    "sunday",
+    "holiday",
+    "work"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "source_file": "labor_code_art_287.txt",
+  "raw_char_count": 375,
+  "cleaned_char_count": 177,
+  "token_count": 19,
+  "cleaned_text": "Article 287. Retirement. Any employee may be retired upon reaching the retirement age established in the collective bargaining agreement or other applicable employment contract.",
+  "tokens": [
+    "article",
+    "287",
+    "retirement",
+    "any",
+    "employee",
+    "may",
+    "retired",
+    "upon",
+    "reaching",
+    "retirement",
+    "age",
+    "established",
+    "collective",
+    "bargaining",
+    "agreement",
+    "other",
+    "applicable",
+    "employment",
+    "contract"
+  ]
+}

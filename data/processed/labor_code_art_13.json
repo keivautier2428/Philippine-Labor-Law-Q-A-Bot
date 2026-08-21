@@ -1,0 +1,12 @@
+{
+  "source_file": "labor_code_art_13.txt",
+  "raw_char_count": 256,
+  "cleaned_char_count": 24,
+  "token_count": 3,
+  "cleaned_text": "Article 13. Definitions.",
+  "tokens": [
+    "article",
+    "13",
+    "definitions"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "source_file": "labor_code_art_12.txt",
+  "raw_char_count": 227,
+  "cleaned_char_count": 67,
+  "token_count": 6,
+  "cleaned_text": "Article 12. Statement of objectives. It is the policy of the State:",
+  "tokens": [
+    "article",
+    "12",
+    "statement",
+    "objectives",
+    "policy",
+    "state"
+  ]
+}
