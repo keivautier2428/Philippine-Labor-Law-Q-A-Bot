@@ -81,6 +81,13 @@ def main():
     )
     top5 = scored[:5]
 
+    print(f"\nSanity-check query: \"{query}\"")
+    print("Top 5 nearest documents by cosine similarity:")
+    for rank, (score, doc) in enumerate(top5, start=1):
+        preview = doc["text"][:120].replace("\n", " ")
+        print(f"  {rank}. {doc['source_file']}  (similarity: {score:.4f})")
+        print(f"     {preview}...")
+
     lines = [
         "# Embedding Generation Demo",
         "",
@@ -116,9 +123,11 @@ def main():
     with open(DEMO_REPORT, "w", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")
 
+    print(f"\n{'=' * 70}")
     print(f"Saved embeddings -> {EMBEDDINGS_OUT}")
     print(f"Saved metadata -> {METADATA_OUT}")
     print(f"Saved demo report -> {DEMO_REPORT}")
+    print("=" * 70)
 
 
 if __name__ == "__main__":

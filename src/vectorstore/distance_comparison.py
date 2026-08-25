@@ -52,10 +52,17 @@ def top_k(scores, k, higher_is_better):
     return order[:k]
 
 
+RULE = "=" * 70
+
+
 def main():
     embeddings = np.load(EMBEDDINGS_PATH)
     with open(METADATA_PATH, encoding="utf-8") as f:
         metadata = json.load(f)
+
+    print(RULE)
+    print(f"DISTANCE METRIC COMPARISON - {embeddings.shape[0]} documents, {embeddings.shape[1]}-dim")
+    print(RULE)
 
     model = SentenceTransformer(MODEL_NAME)
 
@@ -64,6 +71,7 @@ def main():
     # dot product and cosine similarity should rank identically.
     norms = np.linalg.norm(embeddings, axis=1)
     is_normalized = np.allclose(norms, 1.0, atol=1e-3)
+    print(f"\nEmbeddings unit-normalized: {is_normalized} (mean norm = {norms.mean():.4f}, std = {norms.std():.6f})")
 
     lines = [
         "# Distance Metric Comparison",
@@ -93,6 +101,24 @@ def main():
         cos_top = top_k(cos_scores, 5, higher_is_better=True)
         euc_top = top_k(euc_scores, 5, higher_is_better=False)
         dot_top = top_k(dot_scores, 5, higher_is_better=True)
+
+        def short(idx):
+            # "labor_code_art_282.txt" -> "Art. 282" - compact enough to line up in a
+            # fixed-width terminal column; the full filename is still in the report.
+            return "Art. " + metadata[idx]["source_file"].removeprefix("labor_code_art_").removesuffix(".txt")
+
+        print(f'\nQuery: "{query}"')
+        print(f"  {'rank':<5}{'cosine':<20}{'euclidean':<20}{'dot product':<20}")
+        for rank in range(5):
+            c_i, e_i, d_i = cos_top[rank], euc_top[rank], dot_top[rank]
+            print(
+                f"  {rank + 1:<5}"
+                f"{short(c_i) + f' ({cos_scores[c_i]:.3f})':<20}"
+                f"{short(e_i) + f' ({euc_scores[e_i]:.3f})':<20}"
+                f"{short(d_i) + f' ({dot_scores[d_i]:.3f})':<20}"
+            )
+        rankings_match_preview = np.array_equal(cos_top, dot_top)
+        print(f"  -> cosine/dot rankings {'MATCH' if rankings_match_preview else 'DIFFER'}")
 
         lines.append(f"## Query: \"{query}\"")
         lines.append("")
@@ -125,6 +151,10 @@ def main():
             fn(query_vec, embeddings)
         timings[name] = (time.perf_counter() - start) / n_runs * 1000
 
+    print(f"\nTiming (avg over {n_runs} runs, full corpus):")
+    for name, ms in timings.items():
+        print(f"  {name:<10}{ms:.4f} ms")
+
     lines.append("## Timing (average over 20 runs, full corpus)")
     lines.append("")
     for name, ms in timings.items():
@@ -155,7 +185,12 @@ def main():
     with open(REPORT_PATH, "w", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")
 
-    print(f"Compared {len(SAMPLE_QUERIES)} queries across 3 distance metrics.")
+    print(f"\n{RULE}")
+    print("RECOMMENDATION: cosine similarity")
+    print("(embeddings are unit-norm, so cosine = dot product here; cosine stays")
+    print(" correct even if a future model doesn't produce unit-norm vectors)")
+    print(RULE)
+    print(f"\nCompared {len(SAMPLE_QUERIES)} queries across 3 distance metrics.")
     print(f"Report -> {REPORT_PATH}")
 
 

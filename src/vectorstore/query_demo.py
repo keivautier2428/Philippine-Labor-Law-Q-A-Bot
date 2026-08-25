@@ -32,10 +32,17 @@ SAMPLE_QUERIES = [
 ]
 
 
+RULE = "=" * 70
+
+
 def main():
     client = chromadb.PersistentClient(path=CHROMA_DIR)
     embedding_fn = embedding_functions.SentenceTransformerEmbeddingFunction(model_name=MODEL_NAME)
     collection = client.get_collection(COLLECTION_NAME, embedding_function=embedding_fn)
+
+    print(RULE)
+    print(f"VECTOR DB SIMILARITY SEARCH - {collection.count()} documents, cosine similarity")
+    print(RULE)
 
     lines = [
         "# Vector Database Similarity-Search Demo",
@@ -51,19 +58,24 @@ def main():
         distances = results["distances"][0]
         documents = results["documents"][0]
 
+        print(f'\nQuery: "{query}"')
         lines.append(f"## Query: \"{query}\"")
         lines.append("")
         for rank, (doc_id, dist, doc_text) in enumerate(zip(ids, distances, documents), start=1):
             similarity = 1 - dist  # Chroma cosine "distance" = 1 - cosine similarity
             preview = doc_text[:160].replace("\n", " ")
+            print(f"  {rank}. {doc_id}  (cosine similarity: {similarity:.4f})")
+            print(f"     {preview}...")
             lines.append(f"{rank}. `{doc_id}` (cosine similarity: {similarity:.4f}) — {preview}...")
         lines.append("")
 
     with open(REPORT_PATH, "w", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")
 
+    print(f"\n{RULE}")
     print(f"Ran {len(SAMPLE_QUERIES)} sample queries against the Chroma index.")
     print(f"Report -> {REPORT_PATH}")
+    print(RULE)
 
 
 if __name__ == "__main__":

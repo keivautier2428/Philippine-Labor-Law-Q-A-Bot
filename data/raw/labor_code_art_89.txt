@@ -6,3 +6,9 @@ Article 89
 ============================================================
 
 Article 89. Emergency overtime work. Any employee may be required by the employer to perform overtime work in any of the following cases:
+When the country is at war or when any other national or local emergency has been declared by the National Assembly or the Chief Executive;
+When it is necessary to prevent loss of life or property or in case of imminent danger to public safety due to an actual or impending emergency in the locality caused by serious accidents, fire, flood, typhoon, earthquake, epidemic, or other disaster or calamity;
+When there is urgent work to be performed on machines, installations, or equipment, in order to avoid serious loss or damage to the employer or some other cause of similar nature;
+When the work is necessary to prevent loss or damage to perishable goods; and
+Where the completion or continuation of the work started before the eighth hour is necessary to prevent serious obstruction or prejudice to the business or operations of the employer.
+Any employee required to render overtime work under this Article shall be paid the additional compensation required in this Chapter.

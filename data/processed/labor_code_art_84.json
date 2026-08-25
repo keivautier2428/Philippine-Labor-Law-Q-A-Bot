@@ -1,9 +1,9 @@
 {
   "source_file": "labor_code_art_84.txt",
-  "raw_char_count": 466,
-  "cleaned_char_count": 228,
-  "token_count": 26,
-  "cleaned_text": "Article 84. Hours worked. Hours worked shall include (a) all time during which an employee is required to be on duty or to be at a prescribed workplace; and (b) all time during which an employee is suffered or permitted to work.",
+  "raw_char_count": 552,
+  "cleaned_char_count": 314,
+  "token_count": 37,
+  "cleaned_text": "Article 84. Hours worked. Hours worked shall include (a) all time during which an employee is required to be on duty or to be at a prescribed workplace; and (b) all time during which an employee is suffered or permitted to work. Rest periods of short duration during working hours shall be counted as hours worked.",
   "tokens": [
     "article",
     "84",
@@ -30,6 +30,17 @@
     "employee",
     "suffered",
     "permitted",
-    "work"
+    "work",
+    "rest",
+    "periods",
+    "short",
+    "duration",
+    "during",
+    "working",
+    "hours",
+    "shall",
+    "counted",
+    "hours",
+    "worked"
   ]
 }

@@ -15,11 +15,11 @@ Three metrics compared on the same embedded corpus, same queries:
 
 | Rank | Cosine | Euclidean | Dot Product |
 |---|---|---|---|
-| 1 | `labor_code_art_282.txt` (0.4862) | `labor_code_art_282.txt` (1.0137) | `labor_code_art_282.txt` (0.4862) |
-| 2 | `labor_code_art_285.txt` (0.4226) | `labor_code_art_285.txt` (1.0746) | `labor_code_art_285.txt` (0.4226) |
-| 3 | `labor_code_art_286.txt` (0.3422) | `labor_code_art_286.txt` (1.1470) | `labor_code_art_286.txt` (0.3422) |
-| 4 | `labor_code_art_279.txt` (0.3373) | `labor_code_art_279.txt` (1.1513) | `labor_code_art_279.txt` (0.3373) |
-| 5 | `labor_code_art_92.txt` (0.3350) | `labor_code_art_92.txt` (1.1532) | `labor_code_art_92.txt` (0.3350) |
+| 1 | `labor_code_art_282.txt` (0.5153) | `labor_code_art_282.txt` (0.9846) | `labor_code_art_282.txt` (0.5153) |
+| 2 | `labor_code_art_285.txt` (0.4286) | `labor_code_art_285.txt` (1.0690) | `labor_code_art_285.txt` (0.4286) |
+| 3 | `labor_code_art_92.txt` (0.3880) | `labor_code_art_92.txt` (1.1064) | `labor_code_art_92.txt` (0.3880) |
+| 4 | `labor_code_art_286.txt` (0.3422) | `labor_code_art_286.txt` (1.1470) | `labor_code_art_286.txt` (0.3422) |
+| 5 | `labor_code_art_279.txt` (0.3373) | `labor_code_art_279.txt` (1.1513) | `labor_code_art_279.txt` (0.3373) |
 
 Cosine and dot-product rankings match exactly for this query (expected, since the corpus is unit-normalized).
 
@@ -27,19 +27,19 @@ Cosine and dot-product rankings match exactly for this query (expected, since th
 
 | Rank | Cosine | Euclidean | Dot Product |
 |---|---|---|---|
-| 1 | `labor_code_art_93.txt` (0.6310) | `labor_code_art_93.txt` (0.8591) | `labor_code_art_93.txt` (0.6310) |
-| 2 | `labor_code_art_92.txt` (0.6169) | `labor_code_art_92.txt` (0.8754) | `labor_code_art_92.txt` (0.6169) |
+| 1 | `labor_code_art_93.txt` (0.6199) | `labor_code_art_93.txt` (0.8719) | `labor_code_art_93.txt` (0.6199) |
+| 2 | `labor_code_art_91.txt` (0.5311) | `labor_code_art_91.txt` (0.9684) | `labor_code_art_91.txt` (0.5311) |
 | 3 | `labor_code_art_87.txt` (0.5255) | `labor_code_art_87.txt` (0.9742) | `labor_code_art_87.txt` (0.5255) |
-| 4 | `labor_code_art_88.txt` (0.4629) | `labor_code_art_88.txt` (1.0365) | `labor_code_art_88.txt` (0.4629) |
-| 5 | `labor_code_art_86.txt` (0.4559) | `labor_code_art_86.txt` (1.0431) | `labor_code_art_86.txt` (0.4559) |
+| 4 | `labor_code_art_83.txt` (0.5083) | `labor_code_art_83.txt` (0.9917) | `labor_code_art_83.txt` (0.5083) |
+| 5 | `labor_code_art_88.txt` (0.4629) | `labor_code_art_88.txt` (1.0365) | `labor_code_art_88.txt` (0.4629) |
 
 Cosine and dot-product rankings match exactly for this query (expected, since the corpus is unit-normalized).
 
 ## Timing (average over 20 runs, full corpus)
 
-- cosine: 0.0614 ms
-- euclidean: 0.0371 ms
-- dot: 0.0057 ms
+- cosine: 0.0924 ms
+- euclidean: 0.0378 ms
+- dot: 0.0061 ms
 
 ## Recommendation
 

@@ -6,3 +6,8 @@ Article 282
 ============================================================
 
 Article 282. Termination by employer. An employer may terminate an employment for any of the following causes:
+Serious misconduct or willful disobedience by the employee of the lawful orders of his employer or representative in connection with his work;
+Gross and habitual neglect by the employee of his duties;
+Fraud or willful breach by the employee of the trust reposed in him by his employer or duly authorized representative;
+Commission of a crime or offense by the employee against the person of his employer or any immediate member of his family or his duly authorized representatives; and
+Other causes analogous to the foregoing.
