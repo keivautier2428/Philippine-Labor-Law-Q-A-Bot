@@ -1,0 +1,59 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-docker.txt
+      # sentence-transformers is imported lazily and the tests use stand-in embeddings,
+      # so CI skips the multi-GB torch install.
+      - run: pip install $(grep -v -E '^(sentence-transformers|#)' requirements-docker.txt | tr '\n' ' ') pytest
+      - run: python -m pytest tests -q
+
+  docker:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build image
+        run: docker build -t labor-law-bot .
+      - name: Smoke test the container
+        run: |
+          docker run -d --name bot -p 7860:7860 -e GEMINI_API_KEY=dummy labor-law-bot
+          for i in $(seq 1 40); do
+            curl -fs http://localhost:7860/_stcore/health && exit 0
+            sleep 3
+          done
+          docker logs bot
+          exit 1
+
+  deploy:
+    needs: docker
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    env:
+      HF_TOKEN: ${{ secrets.HF_TOKEN }}
+      HF_SPACE: ${{ vars.HF_SPACE }}        # e.g. your-username/labor-law-bot
+    steps:
+      - uses: actions/checkout@v4
+      - name: Push to Hugging Face Space
+        if: env.HF_TOKEN != '' && env.HF_SPACE != ''
+        run: |
+          python deploy/prepare_space.py /tmp/space
+          cd /tmp/space
+          git init -q -b main && git add -A
+          git -c user.name=ci -c user.email=ci@users.noreply.github.com commit -qm "Deploy ${GITHUB_SHA}"
+          git push --force "https://user:${HF_TOKEN}@huggingface.co/spaces/${HF_SPACE}" main
+      - name: Skipped
+        if: env.HF_TOKEN == '' || env.HF_SPACE == ''
+        run: echo "HF_TOKEN secret / HF_SPACE variable not set - deploy skipped."

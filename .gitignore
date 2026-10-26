@@ -7,3 +7,5 @@ __pycache__/
 
 # regenerable vector index (rebuild with src/vectorstore/build_index.py)
 data/processed/chroma_db/
+data/processed/chroma_db_v3/
+.pytest_cache/

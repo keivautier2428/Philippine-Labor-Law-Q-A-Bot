@@ -1,6 +1,6 @@
 # Prompt Engineering Document
 
-Philippine Labor Law Q&A Bot — Checkpoint 2
+Philippine Labor Law Q&A Bot — Checkpoint 2 (updated in Checkpoint 3, see the final section)
 
 This document specifies the structured prompts used to control the bot's behavior.
 Each prompt has a single, narrow job (retrieval query rewriting, grounded answer
@@ -45,8 +45,8 @@ QUESTION:
 
 Query: *"Can my employer fire me without giving a reason?"*
 
-Retrieved context includes Article 282 (just causes) and Article 277 (due process
-requirements). With the rule set above, the model answers:
+Retrieved context includes Article 282 (just causes) and Article 279 (security of
+tenure). With the rule set above, the model answers:
 
 > No — under Article 282, an employer may only terminate employment for specific
 > just causes (e.g., serious misconduct, gross neglect of duty)... [continues with
@@ -162,3 +162,31 @@ provided context` rather than letting an uncited number reach the user. This is
 the same idea as a code reviewer catching an unverified claim — it costs one
 extra API call per answer, but it's the cheapest lever available for reducing
 hallucination in a citation-dependent domain like this one.
+
+---
+
+## Checkpoint 3 changes (implemented in [`src/rag/prompts.py`](../src/rag/prompts.py))
+
+The four Checkpoint 2 prompts above are unchanged in `src/llm/prompts.py` and still run in
+`src/llm/api_demo.py`. The Checkpoint 3 application uses a revised set, because it needs conversation
+memory and the free Gemini tier allows only ~20 requests/day (the 4-prompt flow costs 5 calls per question).
+
+| Checkpoint 2 prompt | Checkpoint 3 status |
+|---|---|
+| 2. Out-of-scope refusal / scope classifier | **Merged** with prompt 3 into one **router** prompt (one call, JSON output: `scope` + `search_query`) |
+| 3. Query reformulation | **Merged** into the router. It now also sees recent chat history, so a follow-up like "in that case, how much would I get?" becomes the standalone query "separation pay closure of establishment" |
+| 1. Grounded answer | **Extended**: adds a history slot plus a rule that earlier messages are only for understanding references, never a source of facts |
+| 4. Self-check | **Reused unchanged**, but a failed check now triggers one regeneration (with the problem stated in a revision suffix) instead of only being logged |
+
+New safeguard that needs no prompt: every "Article N" in a draft answer must appear in the retrieved
+context, otherwise it is treated as a failed check before any LLM call is spent on it.
+
+**Example — memory without hallucination:** after a turn about company closure, the user asks "how much
+would I get?". Without the router rewrite, the retriever would receive a query with no subject and return
+noise. With it, the retriever gets "separation pay closure of establishment". The answer prompt's rule 2
+then stops the model from reusing a figure from the earlier answer unless the retrieved CONTEXT also
+supports it.
+
+**Known weakness:** the router fails open. If its JSON cannot be parsed, the question is treated as
+in-scope and passed on, relying on the relevance threshold, the grounded prompt and verification to catch
+an off-topic question.

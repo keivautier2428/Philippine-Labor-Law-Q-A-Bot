@@ -1,0 +1,17 @@
+.git
+.github
+.env
+.env.*
+!.env.example
+.venv
+venv
+__pycache__
+*.pyc
+.pytest_cache
+tests
+docs
+deploy
+*.docx
+*.pdf
+# the index is rebuilt inside the image, never copied from a developer machine
+data/processed
